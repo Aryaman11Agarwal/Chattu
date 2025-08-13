@@ -1,26 +1,72 @@
-import React, { useState } from 'react'
-import {Container, Paper, TextField, Typography} from "@mui/material"
+import React, { useState } from "react";
+import { Container, Paper, TextField, Typography, Button } from "@mui/material";
 
 const Login = () => {
-
-  const [isLogin,setIsLogin]=useState(true)
+  const [isLogin, setIsLogin] = useState(true);
+  const toggleLogin = () => {
+    setIsLogin(false);
+  };
   return (
     <Container component="main" maxWidth="sx">
-     <Paper elevation={3} sx={{padding:4, display:"flex",flexDirection:"column",alignItems:"center"}}>
-      {
-
-        isLogin?(
+      <Paper
+        elevation={3}
+        sx={{
+          padding: 4,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {isLogin ? (
           <>
-          <Typography variant='h5'>Login</Typography>
-          <form>
-           <TextField></TextField>
-          </form>
-          </>
-          ):<div>Register</div>
-      }
-     </Paper>
-    </Container>
-  )
-}
+            <Typography variant="h5">Login</Typography>
+            <form>
+              <TextField
+                required
+                fullWidth
+                label="Username"
+                margin="normal"
+                variant="outlined"
+              ></TextField>
 
-export default Login
+              <TextField
+                required
+                fullWidth
+                label="Password"
+                margin="normal"
+                type="Password"
+                variant="outlined"
+              ></TextField>
+
+              <Button
+                sx={{ marginTop: "1rem" }}
+                fullWidth
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Login
+              </Button>
+              <Typography textAlign="center" m={"1rem"}>
+                OR
+              </Typography>
+
+              <Button
+                sx={{ marginTop: "1rem" }}
+                fullWidth
+                variant="text"
+                onClick={toggleLogin}
+              >
+                SIGN UP INSTEAD
+              </Button>
+            </form>
+          </>
+        ) : (
+          <div>Register</div>
+        )}
+      </Paper>
+    </Container>
+  );
+};
+
+export default Login;
