@@ -9,7 +9,7 @@ const Groups=lazy(()=>import("./pages/Groups"))
 const App = () => {
   return (
    <BrowserRouter>
-      <h1>Header</h1>
+     
     <Routes>
       <Route path='/' element={<Home></Home>}/>
       <Route path='/login' element={<Login></Login>}/>
