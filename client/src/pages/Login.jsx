@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Paper, TextField, Typography, Button } from "@mui/material";
+import { Container, Paper, TextField, Typography, Button, Stack, Avatar } from "@mui/material";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -7,7 +7,14 @@ const Login = () => {
     setIsLogin(!isLogin);
   };
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs"
+    sx={{
+      height:"100vh",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center"
+    }}
+    >
       <Paper
         elevation={3}
         sx={{
@@ -64,7 +71,25 @@ const Login = () => {
         ) : (
           <>
              <Typography variant="h5">Register</Typography>
-            <form>
+            <form
+             style={{
+              width:"100%",
+              marginTop:"1rem"
+             }}
+             >
+
+               <Stack 
+               position={"relative"}
+               width={"10rem"}
+               margin={"auto"}>
+                <Avatar sx={{
+                  width:"10rem",
+                  height:"10rem",
+                  objectFit:"contain",
+                }}/>
+
+
+               </Stack>
 
                <TextField
                 required
